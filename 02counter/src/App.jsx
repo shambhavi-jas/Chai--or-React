@@ -23,11 +23,17 @@ const removefun =()=>{
     setCounter(counter-1)
   }
 }
+const add4=()=>{
+  setCounter(prevCounter=>prevCounter+1);
+  setCounter(prevCounter=>prevCounter+1);
+  setCounter(prevCounter=>prevCounter+1);
+  setCounter(prevCounter=>prevCounter+1);
+}
   return (
     <>
       <h1>chai or react</h1>
       <h2>counter value:{counter}</h2>
-      <button onClick={addfun}>ADD</button>
+      <button onClick={add4}>ADD</button>
       <br/>
       <button onClick={removefun}>REMOVE</button>
     </>
