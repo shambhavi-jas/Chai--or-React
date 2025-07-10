@@ -17,17 +17,17 @@ function App() {
 
   const pw_generator=useCallback(()=>{
 
-  let pass=""
-  let str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-  if(noallowed) str+="0123456789"
-  if(symbolallowed) str+="!@#$%^&*()-_=+[]{}|;:,.<>?/`~"
+    let pass=""
+    let str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    if(noallowed) str+="0123456789"
+    if(symbolallowed) str+="!@#$%^&*()-_=+[]{}|;:,.<>?/`~"
   
-  for (let i = 0; i < len; i++) {
-    let ch=Math.floor(Math.random()*str.length);
+    for (let i = 0; i < len; i++) {
+    let ch=Math.floor(Math.random()*str.length+1);
     pass+=str.charAt(ch);
-  }
+    }
 
-  setPW(pass);
+    setPW(pass);
 
   },[len,noallowed,symbolallowed,setPW]);
  
