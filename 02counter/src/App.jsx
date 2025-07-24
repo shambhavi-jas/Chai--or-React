@@ -33,9 +33,9 @@ const add4=()=>{
     <>
       <h1>chai or react</h1>
       <h2>counter value:{counter}</h2>
-      <button onClick={add4}>ADD</button>
+      <button onClick={add4}>ADD:{counter}</button>
       <br/>
-      <button onClick={removefun}>REMOVE</button>
+      <button onClick={removefun}>REMOVE:{counter}</button>
     </>
   )
 }

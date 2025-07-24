@@ -44,7 +44,7 @@ function App() {
 
   useEffect(()=>{
     pw_generator();
-  },[len,noallowed,symbolallowed,setPW]);
+  },[len,noallowed,symbolallowed, pw_generator]);
 
 
 
