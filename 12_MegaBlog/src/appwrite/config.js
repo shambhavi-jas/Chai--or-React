@@ -1,4 +1,4 @@
-import  conf from '../conf.js';
+import conf from '../conf/conf.js';
 import { Client, ID, Databases,Storage,Query } from "appwrite";
 
 export class Service{
@@ -27,10 +27,10 @@ export class Service{
             }
           )
         }catch(error){
-               console.log("Appwrite service ::getCurrentUser::error",error);
+               console.log("Appwrite service ::createPost::error",error);
         }
     }
-    async update(slug,{title,content,featuredImage,status}){
+    async updatepost(slug,{title,content,featuredImage,status}){
         try {
             return await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
@@ -44,7 +44,7 @@ export class Service{
                 }
             )
         } catch (error) {
-             console.log("Appwrite service ::getCurrentUser::error",error);
+             console.log("Appwrite service ::updatepost::error",error);
         }
     }
     async deletePost(slug){
@@ -56,7 +56,7 @@ export class Service{
             )
             return true
         } catch (error) {
-             console.log("Appwrite service ::getCurrentUser::error",error);
+             console.log("Appwrite service ::deletePost::error",error);
              return false
         }
     }
@@ -68,7 +68,7 @@ export class Service{
                 slug,
             )
         } catch (error) {
-             console.log("Appwrite service ::getCurrentUser::error",error);
+             console.log("Appwrite service ::getPost::error",error);
              return false
         }
     }
@@ -80,11 +80,17 @@ export class Service{
                 queries,
             )
         } catch (error) {
-             console.log("Appwrite service ::getCurrentUser::error",error);
+             console.log("Appwrite service ::getPosts::error",error);
              return false
         }
     }
 
+
+
+
+
+
+    
 
     //file upload..........
     async uploadFile(file){
@@ -92,10 +98,10 @@ export class Service{
             return await this.bucket.createFile(
                 conf. appwriteBucketId,
                 ID.unique(),
-                file,
+                file
             )
         } catch (error) {
-             console.log("Appwrite service ::getCurrentUser::error",error);
+             console.log("Appwrite service ::uploadFile::error",error);
              return false
         }
     }
@@ -107,7 +113,7 @@ export class Service{
             )
             return true
         } catch (error) {
-             console.log("Appwrite service ::getCurrentUser::error",error);
+             console.log("Appwrite service ::deleteFile::error",error);
              return false
         }
     }
